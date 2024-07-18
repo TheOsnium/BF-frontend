@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>BLUESTOCK - Create an account</title>
+   
+    <style>
+        body, html {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .container {
+            padding: 30px;
+            border-radius: 8px;
+            width: 320px;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            text-align: left;
+            font-size: 14px;
+            color: #666;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .terms p {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .terms a {
+            color: #5d3fd3;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .captcha {
+            display: flex;
+            align-items: center;
+            position: relative;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .captcha img {
+            height: 30px;
+            width: 30px;
+        }
+
+        .captcha label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        .captcha input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 8px;
+            background-color: #5d3fd3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #888;
+            font-size: 12px;
+        }
+
+        .google-login {
+            display: flex;
+            width: 319px;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #f0f2f5;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .google-login img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .google-login:hover {
+            background-color: #e0e0e0;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #808080;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-link a {
+            color: #5d3fd3;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-link a:hover {
+            text-decoration: none;
+        }
+
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            padding-right: 30px; /* Space for the eye icon */
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .password-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'home/assets/site_logo.png' %}" alt="Bluestock Logo">
+        </div>
+        <h1>Create an account</h1>
+        <form class="form">
+            <label for="text1">Name</label>
+            <input type="text" id="text1" name="text1"  required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"  required>
+
+            <label for="password">Password</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <i class="fas fa-eye toggle-password" onclick="togglePasswordVisibility()"></i>
+            </div>
+
+            <div class="terms">
+                <p>By continuing, you agree to our <a href="#">terms of service.</a></p>
+            </div>
+
+            <div class="captcha">
+                <input type="checkbox" id="not-robot" name="not-robot" required>
+                <label for="not-robot">&nbsp;&nbsp;I'm not a robot</label>
+                <img src="{% static 'home/assets/recaptcha-icon.png' %}" alt="reCAPTCHA">
+            </div>
+
+            <button type="submit" class="signup-btn">Sign up</button>
+        </form>
+
+        <div class="divider">or sign up with</div>
+
+        <button type="button" class="google-login">
+            <img src="{% static 'home/assets/Google.webp' %}" alt="Google Logo">
+            Continue with Google
+        </button>
+
+        <p class="login-link">Already have an account? <a href="{% url 'login' %}">Sign in here</a></p>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const togglePasswordIcon = document.querySelector('.toggle-password');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePasswordIcon.classList.remove('fa-eye');
+                togglePasswordIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                togglePasswordIcon.classList.remove('fa-eye-slash');
+                togglePasswordIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>

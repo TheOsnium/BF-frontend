@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPO Dashboard</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .circle {
+        border-radius: 50%;
+        text-align: center;
+        line-height: 80px;
+        color: white;
+        font-size: 20px;
+        display: inline-block;
+      }
+      .circle-small {
+        width: 80px;
+        height: 80px;
+      }
+      .circle-medium {
+        width: 100px;
+        height: 100px;
+      }
+      .circle-large {
+        width: 120px;
+        height: 120px;
+      }
+      .bg-orange {
+        background-color: #ff9900;
+      }
+      .bg-blue {
+        background-color: #00aaff;
+      }
+      .bg-purple {
+        background-color: #9900cc;
+      }
+      .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: calc(100vh - 48px);
+        padding-top: 0.5rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .dashboard-image {
+        width: 100%;
+        height: auto;
+      }
+    
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <img src="ipo/static/market_stat.png" alt="Bluestock Fintech" style="width: 30px; height: 30px;">
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                Manage IPO
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                IPO Subscription
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                IPO Allotment
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                Settings
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                API Manager
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Accounts
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Help
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Dashboard</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <div class="circle circle-large bg-orange">
+                  30<br>Total IPO
+                </div>
+                <div class="circle circle-medium bg-purple mt-3">
+                  9<br>IPO in Loss
+                </div>
+                <div class="circle circle-small bg-blue mt-3">
+                  20<br>IPO in Gain
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Quick Links</h5>
+                <ul class="list-unstyled">
+                  <li><a href="#"><img src="ipo/static/market_stat.png" alt="NSE India" style="width: 20px; height: 20px;"> NSE India</a></li>
+                  <li><a href="#"><img src="ipo/static/market_stat.png" alt="BSE India" style="width: 20px; height: 20px;"> BSE India</a></li>
+                  <li><a href="#"><img src="ipo/static/market_stat.png" alt="SEBI" style="width: 20px; height: 20px;"> SEBI</a></li>
+                  <li><a href="#"><img src="ipo/static/market_stat.png" alt="Money Control" style="width: 20px; height: 20px;"> Money Control</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <h5 class="card-title">Main Board IPO</h5>
+                <p>From 01 Jan 2024</p>
+                <div class="doughnut-chart">
+                  <!-- Placeholder for the chart -->
+                </div>
+                <button class="btn btn-primary mt-3">View Report</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var ctx = document.createElement('canvas');
+      $('.doughnut-chart').append(ctx);
+      var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Upcoming', 'New Listed', 'Ongoing'],
+          datasets: [{
+            data: [15, 25, 2],
+            backgroundColor: ['#6666ff', '#3399ff', '#cc66ff']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutoutPercentage: 60
+        }
+      });
+    });
+  </script>
+</body>
+</html>

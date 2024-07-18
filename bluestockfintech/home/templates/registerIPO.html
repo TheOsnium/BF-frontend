@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcomming IPO Information</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 200px;
+            margin-right: 20px;
+        }
+        .tab {
+            padding: 10px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .tab.active {
+            background-color: #e6e6e6;
+            border-radius: 4px;
+        }
+        .tab-icon {
+            margin-right: 10px;
+            color: #4285f4;
+        }
+        .main-content {
+            flex: 1;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .header p {
+            margin: 5px 0 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-primary {
+            background-color: #4285f4;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .form-container h2 {
+            font-size: 18px;
+            margin-top: 0;
+        }
+        .form-container p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+	    box-sizing:inherit;
+	    margin-right:20px;
+	    padding-left:30px;
+	    
+	    
+	    
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .logo-upload {
+            display: flex;
+            align-items: center;
+        }
+        .logo-upload img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .logo-upload .btn {
+            font-size: 12px;
+            padding: 6px 12px;
+	    margin-right:10px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        h3 {
+            font-size: 14px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="tab active">
+                <span class="tab-icon">○</span>
+                IPO Information
+            </div>
+            <div class="tab">
+                <span class="tab-icon">⊞</span>
+                IPO Info
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <div>
+                    <h1>Upcomming IPO Information</h1>
+                    <p>Manage your IPO Details</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary">Register</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+            <div class="form-container">
+                <h2>IPO Information</h2>
+                <p>Enter IPO Details</p>
+                <form>
+                    <div class="form-group">
+                        <label>Company Logo</label>
+                        <div class="logo-upload">
+                            <img src="nse.png" alt="NSE INDIA">
+                            <button class="btn btn-primary">Upload Logo</button>
+                            <button class="btn btn-secondary">Delete</button>
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" placeholder="Vodafone Idea">
+                        </div>
+                        <div class="form-group">
+                            <label>Price Band</label>
+                            <input type="text"placeholder="Not Issued">
+                        </div>
+                        <div class="form-group">
+                            <label>Open</label>
+                            <input type="text" placeholder="Not Issued">
+                        </div>
+                        <div class="form-group">
+                            <label>Close</label>
+                            <input type="text" value="Not Issued">
+                        </div>
+                        <div class="form-group">
+                            <label>Issue Size</label>
+                            <input type="text" placeholder="2300 Cr.">
+                        </div>
+                        <div class="form-group">
+                            <label>Issue Type</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="form-group">
+                            <label>LISTING DATE</label>
+                            <input type="text" placeholder="Not Issued">
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select><option></option></select>
+                        </div>
+                    </div>
+                    <h3>NEW LISTED IPO DETAILS (WHEN IPO GET LISTED)</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>IPO PRICE</label>
+                            <input type="text" placeholder="₹ 383">
+                        </div>
+                        <div class="form-group">
+                            <label>LISTING PRICE</label>
+                            <input type="text" placeholder="₹ 435">
+                        </div>
+                        <div class="form-group">
+                            <label>LISTING GAIN</label>
+                            <input type="text" placeholder="13.58 %">
+                        </div>
+                        <div class="form-group">
+                            <label>LISTING DATE</label>
+                            <input type="text" placeholder="2024-05-30">
+                        </div>
+                        <div class="form-group">
+                            <label>CMP</label>
+                            <input type="text" placeholder="₹ 410">
+                        </div>
+                        <div class="form-group">
+                            <label>CURRENT RETURN</label>
+                            <input type="text" placeholder="7.05 %">
+                        </div>
+                        <div class="form-group">
+                            <label>RHP</label>
+                            <input type="text" placeholder="Enter RHP PDF Link">
+                        </div>
+                        <div class="form-group">
+                            <label>DRHP</label>
+                            <input type="text" placeholder="Enter DRHP PDF Link">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
